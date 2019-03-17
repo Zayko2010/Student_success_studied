@@ -173,3 +173,20 @@ boxplot(G2~higher, data = df, ylab='Second period grade', xlab='Desire for a hig
 col <- rev(brewer.pal(2, "BuPu"))
 boxplot(G3~higher, data = df, ylab='Final Grade G3', xlab='Desire for a higher education', col = col, names=c("No","Yes"))
 
+
+# ----- Modelling and Evaluation
+
+set.seed(100)
+trainingRowIndex <- sample(1:nrow(df), 0.8*nrow(df))
+trainingData <- df[trainingRowIndex, ]
+testData  <- df[-trainingRowIndex, ]
+
+fit <- lm(G3 ~ studytime + health + Dalc, data=trainingData)
+summary(fit)
+
+grade_predictions <- predict(fit, testData)
+
+actual_predictions <- data.frame(cbind(actuals=testData$G3, predicteds=grade_predictions))
+
+correlation_accuracy <- cor(actual_predictions)
+head(actual_predictions)

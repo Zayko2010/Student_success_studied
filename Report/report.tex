@@ -177,4 +177,44 @@
 	
 	As it's quite apparent, the desire for a higher education motivates the students to increase their performance in secondary school.
 	
+	
+	\section{Modeling}
+	
+	For modeling, a linear regression model was created based on the most significant factors found from the analysis above. And these factors are: 
+	\begin{itemize}
+		\item Study time
+		\item Health status
+		\item Weekday alcohol consumption.
+	\end{itemize}
+
+	With the following model:
+	
+	\begin{center}
+		\begin{figure}[H]
+			\hspace*{1.2in}
+			\vspace*{-0.5in}
+			\includegraphics[width=300px]{model.jpeg}
+			\label{fig:model}
+		\end{figure}
+	\end{center}
+
+	\section{Evaluation}
+	
+	For the evaluation of the model, the test subset was use for prediction with the following results:
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|l|}
+			\hline
+			& Actual Values & Predicts \\ \hline
+			7  & 13            & 11.67718 \\ \hline
+			8  & 13            & 11.97862 \\ \hline
+			10 & 13            & 11.37574 \\ \hline
+			14 & 13            & 11.67718 \\ \hline
+			20 & 12            & 10.76988 \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	
+	
 \end{document}
